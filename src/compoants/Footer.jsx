@@ -14,12 +14,12 @@ export default function Footer() {
 
           {/* Brand Column */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <h3 className="text-white font-bold text-xl tracking-wider">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
+              <h3 className="text-white font-bold text-base sm:text-xl tracking-wider">
                 MUHAMMAD_LUQMAN_
               </h3>
               {/* Status Dot */}
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/5">
                 <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
                 <span className="text-[10px] text-slate-400 font-medium tracking-wider uppercase">Available</span>
               </div>

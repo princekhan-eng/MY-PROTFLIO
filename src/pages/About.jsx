@@ -30,20 +30,20 @@ export default function About() {
       <div className="absolute top-1/3 -left-48 w-150 h-150 bg-violet-500/3 blur-[150px] rounded-full -z-10"></div>
       <div className="absolute bottom-1/3 -right-48 w-125 h-125 bg-cyan-500/3 blur-[150px] rounded-full -z-10"></div>
 
-      <div className="max-w-6xl mx-auto px-6 py-32 md:py-40">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-32 md:py-40">
 
         {/* Header with Editorial Decorators */}
-        <div className="relative mb-24 lite-fade-up">
+        <div className="relative mb-12 sm:mb-24 lite-fade-up">
           {/* Decorative Plus Signs */}
           <div className="absolute -top-8 -right-4 text-slate-800 text-4xl font-thin select-none hidden md:block">+</div>
           <div className="absolute top-10 -right-10 text-slate-800 text-2xl font-thin select-none hidden md:block">+</div>
 
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-px w-12 bg-linear-to-r from-cyan-500 to-transparent"></div>
+            <div className="h-px w-12 bg-gradient-to-r from-cyan-500 to-transparent"></div>
             <p className="text-cyan-400/80 text-xs font-medium tracking-[0.4em] uppercase">About Me</p>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95]">
             I build things for <br />
             <span className="text-slate-500">the modern web.</span>
           </h1>

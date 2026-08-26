@@ -70,7 +70,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.95] sm:leading-[0.9]">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95]">
             Let's work <br />
             <span className="text-slate-500">together.</span>
           </h1>

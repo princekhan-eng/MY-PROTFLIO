@@ -41,7 +41,7 @@ function Home() {
           </p>
 
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.95] sm:leading-[0.9] lite-fade-up break-words"
+            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95] lite-fade-up break-words"
             style={{ animationDelay: "0.2s" }}
           >
             Muhammad <br />
@@ -49,7 +49,7 @@ function Home() {
           </h1>
 
           <h3
-            className="text-base sm:text-lg md:text-xl text-slate-400 font-normal lite-fade-up"
+            className="text-sm sm:text-lg md:text-xl text-slate-400 font-normal lite-fade-up"
             style={{ animationDelay: "0.3s" }}
           >
             MERN Stack Web Developer

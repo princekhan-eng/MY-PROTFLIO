@@ -1,16 +1,76 @@
 @import "tailwindcss";
 
-
 /* ==========================================
-   ELITE PORTFOLIO BACKGROUND SYSTEM
+   GLOBAL RESPONSIVE SAFETY & SCROLLBAR
    ========================================== */
 
-/* Aurora Blobs */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Premium System Font Stack */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: #050505;
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Themed Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Themed Text Selection Highlight */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: #ffffff;
+}
+
+/* Remove Mobile Tap Highlight */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Global Focus States */
+*:focus-visible {
+  outline: 1px solid rgba(6, 182, 212, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* ==========================================
-   LITE PORTFOLIO ANIMATIONS
+   LITE PORTFOLIO ANIMATIONS & TRANSITIONS
    ========================================== */
 
-/* Clean Fade Up Animation */
 .lite-fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -24,7 +84,6 @@
   }
 }
 
-/* Very Slow, Subtle Background Drift */
 .animate-lite-drift-1 {
   animation: drift1 25s ease-in-out infinite alternate;
 }
@@ -42,11 +101,11 @@
   0% { transform: translate(0, 0); }
   100% { transform: translate(30px, -30px); }
 }
-/* Clean Fade Down Animation for Navbar */
+
 .lite-fade-down {
   opacity: 0;
   transform: translateY(-20px);
-  animation: clean-fade-down 0.8s ease-out 0.2s forwards; /* 0.2s delay so it feels natural */
+  animation: clean-fade-down 0.8s ease-out 0.2s forwards;
 }
 
 @keyframes clean-fade-down {
@@ -55,52 +114,26 @@
     transform: translateY(0);
   }
 }
+
 /* ==========================================
-   GLOBAL VISUAL OPTIMIZATION
+   RESPONSIVE MEDIA QUERY ADJUSTMENTS
    ========================================== */
 
-/* 1. Premium System Font Stack (Loads instantly, looks like Inter/SF Pro) */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased; /* Stops thin fonts from looking jagged */
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility; /* Perfect kerning */
+/* Mobile Phones (Portrait - up to 640px) */
+@media (max-width: 640px) {
+  h1 {
+    word-break: break-word;
+  }
+  .responsive-padding {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
-/* 2. Buttery Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* 3. Custom Themed Scrollbar (Matches dark theme) */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #333;
-}
-
-/* 4. Themed Text Selection Highlight */
-::selection {
-  background: rgba(6, 182, 212, 0.3); /* Cyan tint */
-  color: #ffffff;
-}
-
-/* 5. Remove Mobile Tap Highlight (Makes buttons feel native) */
-a, button {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* 6. Global Focus States (Accessibility + Theme match) */
-*:focus-visible {
-  outline: 1px solid rgba(6, 182, 212, 0.5);
-  outline-offset: 2px;
-  border-radius: 4px;
+/* Laptops & Desktop Monitors (1024px and up) */
+@media (min-width: 1024px) {
+  .laptop-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
 }
