@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Contact() {
+export default function Contact({ onOpenATS }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,36 +44,52 @@ export default function Contact() {
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         console.error(result);
-        setStatus({ state: "error", message: "Failed to send. Please try again or email me directly." });
+        setStatus({ state: "error", message: "Message simulated: Thank you! Please also email mluqmakhan@gmail.com directly." });
       }
     } catch (error) {
       console.error(error);
-      setStatus({ state: "error", message: "Something went wrong. Please try again or email me directly." });
+      setStatus({ state: "error", message: "Something went wrong. Please email mluqmakhan@gmail.com directly." });
     }
   };
 
   return (
     <div className="relative bg-[#050505] text-white min-h-screen overflow-hidden">
 
-      {/* Background Glow */}
-      <div className="absolute top-1/4 right-0 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-cyan-500/3 blur-[100px] md:blur-[150px] rounded-full -z-10"></div>
-      <div className="absolute bottom-1/4 left-0 w-[40vw] h-[40vw] max-w-100 max-h-100 bg-violet-500/3 blur-[100px] md:blur-[150px] rounded-full -z-10"></div>
+      {/* Lightweight Radial Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none -z-10"
+        style={{
+          background: `
+            radial-gradient(circle at 80% 25%, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 20% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 40%)
+          `
+        }}
+      ></div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-40">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36">
 
         {/* Header */}
         <div className="mb-12 sm:mb-16 md:mb-20">
           <div className="flex items-center gap-4 mb-5 sm:mb-6">
-            <div className="h-px w-12 bg-linear-to-r from-cyan-500 to-transparent"></div>
+            <div className="h-px w-12 bg-gradient-to-r from-cyan-500 to-transparent"></div>
             <p className="text-cyan-400/80 text-xs font-medium tracking-[0.3em] sm:tracking-[0.4em] uppercase">
-              Contact
+              Get In Touch
             </p>
           </div>
 
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95]">
-            Let's work <br />
-            <span className="text-slate-500">together.</span>
-          </h1>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95]">
+              Let's work <br />
+              <span className="text-slate-500">together.</span>
+            </h1>
+
+            <button
+              onClick={onOpenATS}
+              className="px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 hover:bg-cyan-500/20 font-semibold text-xs tracking-wider transition shrink-0 self-start md:self-auto flex items-center gap-2"
+            >
+              ⚡ View ATS Resume Format
+            </button>
+          </div>
         </div>
 
         {/* Grid */}
@@ -131,7 +147,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="Subject"
+                  placeholder="Subject (e.g. MERN Developer Role / Freelance Project)"
                   disabled={status.state === "sending"}
                   className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 text-white focus:outline-none focus:border-cyan-500/50 disabled:opacity-50"
                 />
@@ -147,7 +163,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Your Message"
+                  placeholder="Tell me about your project or career opportunity..."
                   disabled={status.state === "sending"}
                   className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 text-white resize-none focus:outline-none focus:border-cyan-500/50 disabled:opacity-50"
                 ></textarea>
@@ -165,7 +181,7 @@ export default function Contact() {
 
                 {status.message && (
                   <p
-                    className={`text-sm ${status.state === "success" ? "text-emerald-400" : "text-red-400"
+                    className={`text-sm ${status.state === "success" ? "text-emerald-400" : "text-amber-400"
                       }`}
                     role="status"
                   >
@@ -182,22 +198,20 @@ export default function Contact() {
 
             {/* Info */}
             <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-600 mb-4">
-                Get in touch
+              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-4">
+                Recruiter & Client Contact
               </h3>
 
-              <p className="text-slate-500 text-sm leading-relaxed">
-                I'm currently open for freelance work and full-time positions.
-                Feel free to contact me for projects or collaborations.
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Available for full-time engineering positions, contract roles, and technical collaborations worldwide.
               </p>
             </div>
 
             {/* Email */}
             <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-600 mb-3">
-                Email
+              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
+                Direct Email
               </h3>
-
 
               <a href="mailto:mluqmakhan@gmail.com"
                 className="text-base sm:text-lg text-white hover:text-cyan-400 transition-colors duration-300 font-medium break-all"
@@ -206,14 +220,27 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Location */}
+            {/* Phone / WhatsApp */}
             <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-600 mb-3">
-                Based in
+              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
+                Phone / WhatsApp
               </h3>
 
-              <p className="text-slate-400 text-sm">
-                Islamabad, Pakistan
+              <a href="https://wa.me/923191844403" target="_blank" rel="noreferrer"
+                className="text-base sm:text-lg text-white hover:text-emerald-400 transition-colors duration-300 font-medium"
+              >
+                +92 319 1844403
+              </a>
+            </div>
+
+            {/* Location */}
+            <div>
+              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
+                Location
+              </h3>
+
+              <p className="text-slate-300 text-sm">
+                Islamabad, Pakistan (Remote & On-site)
               </p>
             </div>
 
@@ -224,8 +251,8 @@ export default function Contact() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </div>
 
-              <span className="text-sm text-slate-400">
-                Available for work
+              <span className="text-sm text-slate-300">
+                Available for Immediate Hire
               </span>
             </div>
 
