@@ -3,7 +3,7 @@ export default function Experience() {
     {
       role: "Full Stack MERN Developer",
       company: "Freelance & Client Projects",
-      location: "Islamabad, Pakistan (Remote)",
+      location: "Islamabad, Pakistan",
       period: "Jan 2024 – Present",
       type: "Contract / Full-time",
       highlights: [
