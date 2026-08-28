@@ -118,7 +118,7 @@ export default function Projects({ onOpenATS }) {
 
                 <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
                   <a
-                    href="https://mengment-app.vercel.app/"
+                    href="https://mengmenthub.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="justify-center px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-indigo-600/30 flex items-center gap-2 text-center"
