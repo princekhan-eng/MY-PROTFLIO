@@ -1,0 +1,106 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS CARDS & SURFACES
+// ==========================================
+
+@mixin card-cyber-style {
+  @include glass-card;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+
+  // Luminous top border sheen
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  }
+}
+
+@mixin card-featured-style {
+  background: linear-gradient(135deg, rgba(14, 18, 32, 0.95) 0%, rgba(9, 11, 20, 0.95) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl, 0 0 35px rgba(99, 102, 241, 0.15);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  transition: all $transition-base;
+
+  @include desktop {
+    padding: 2.75rem;
+  }
+
+  &:hover {
+    border-color: rgba(99, 102, 241, 0.6);
+    box-shadow: $shadow-xl, $glow-indigo-lg;
+  }
+}
+
+.card-cyber {
+  @include card-cyber-style;
+
+  &--p-lg {
+    padding: 2.25rem;
+  }
+
+  &--p-sm {
+    padding: 1.25rem;
+  }
+}
+
+.card-featured {
+  @include card-featured-style;
+}
+
+// Terminal Card Window
+.terminal-window {
+  background: #080a10;
+  border: 1px solid $color-border-medium;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-xl;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid $color-border-subtle;
+  }
+
+  &__dots {
+    display: flex;
+    gap: 0.45rem;
+
+    span {
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: $radius-full;
+
+      &.dot-red { background: #ff5f57; }
+      &.dot-yellow { background: #febc2e; }
+      &.dot-green { background: #28c840; }
+    }
+  }
+
+  &__title {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-text-dim;
+  }
+
+  &__body {
+    padding: 1.5rem;
+    font-family: $font-mono;
+    font-size: 0.825rem;
+    line-height: 1.75;
+  }
+}

@@ -1,0 +1,87 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS TYPOGRAPHY & HEADING HIERARCHY
+// ==========================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-sans;
+  font-weight: 800;
+  color: $color-text-white;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+}
+
+h2 {
+  font-size: clamp(1.85rem, 4.5vw, 3.25rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: $color-text-secondary;
+  line-height: 1.65;
+}
+
+.text-gradient-white {
+  @include text-gradient-white;
+}
+
+.text-gradient-cyan {
+  @include text-gradient-cyan;
+}
+
+.text-gradient-violet {
+  @include text-gradient-violet;
+}
+
+.text-cyan {
+  color: $color-cyan;
+}
+
+.text-violet {
+  color: $color-violet;
+}
+
+.text-emerald {
+  color: $color-emerald;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+.font-mono {
+  font-family: $font-mono;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: $color-cyan;
+  margin-bottom: 0.75rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 2.25rem;
+    height: 2px;
+    background: linear-gradient(to right, $color-cyan, transparent);
+  }
+}

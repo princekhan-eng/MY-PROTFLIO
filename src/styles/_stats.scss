@@ -1,0 +1,75 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS STATS SECTION
+// ==========================================
+
+.stats-section {
+  padding: 2.5rem 0 3.5rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  &__card {
+    @include glass-card;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-header {
+      @include flex-between;
+      margin-bottom: 0.75rem;
+
+      .icon {
+        font-size: 1.35rem;
+      }
+
+      .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: $radius-full;
+        background: $color-cyan-glow;
+        transition: background-color $transition-fast;
+      }
+    }
+
+    &:hover &-header .dot {
+      background: $color-cyan;
+      box-shadow: $glow-cyan-sm;
+    }
+
+    &-num {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      @include text-gradient-white;
+      margin-bottom: 0.5rem;
+    }
+
+    &-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $color-cyan;
+      margin-bottom: 0.25rem;
+    }
+
+    &-sub {
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      color: $color-text-dim;
+    }
+  }
+}

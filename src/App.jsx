@@ -13,10 +13,10 @@ function App() {
   const [isATSOpen, setIsATSOpen] = useState(false);
 
   return (
-    <div>
+    <div className="app-root">
       <BrowserRouter>
         <Navber onOpenATS={() => setIsATSOpen(true)} />
-        <main className="pt-10">
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Hero onOpenATS={() => setIsATSOpen(true)} />} />
             <Route path="/about" element={<About onOpenATS={() => setIsATSOpen(true)} />} />

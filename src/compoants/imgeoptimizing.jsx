@@ -1,18 +1,31 @@
 import { useState } from "react";
 
-export default function OptimizedImg({ src, alt, className }) {
+export default function OptimizedImg({ src, alt, className = "" }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      {/* Native browser lazy loading & asynchronous decoding */}
+    <div
+      className={`optimized-img-wrapper ${className}`}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        width: "100%",
+        height: "100%",
+      }}
+    >
       <img
         src={src}
         alt={alt}
         loading="lazy"
         decoding="async"
         onLoad={() => setLoaded(true)}
-        className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transition: "opacity 0.7s ease",
+          opacity: loaded ? 1 : 0,
+        }}
       />
     </div>
   );

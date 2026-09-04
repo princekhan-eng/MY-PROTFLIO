@@ -4,10 +4,10 @@ import Projects from "../pages/Projects";
 
 export default function Hero({ onOpenATS }) {
   return (
-    <>
+    <div className="hero-page-stack">
       <Home onOpenATS={onOpenATS} />  
       <Projects onOpenATS={onOpenATS} />
       <About onOpenATS={onOpenATS} />
-    </>
+    </div>
   );
 }

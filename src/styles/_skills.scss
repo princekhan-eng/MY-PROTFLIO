@@ -1,0 +1,71 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS SKILL MATRIX
+// ==========================================
+
+.skills-section {
+  padding: 3rem 0;
+
+  &__header {
+    margin-bottom: 2.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  &__category {
+    @include glass-card;
+    padding: 1.75rem;
+
+    &-header {
+      @include flex-between;
+      margin-bottom: 1.25rem;
+
+      &-left {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+
+        .cat-dot {
+          width: 0.6rem;
+          height: 0.6rem;
+          border-radius: $radius-full;
+          box-shadow: 0 0 8px currentColor;
+
+          &--cyan { color: $color-cyan; background: $color-cyan; }
+          &--emerald { color: $color-emerald; background: $color-emerald; }
+          &--violet { color: $color-violet; background: $color-violet; }
+          &--amber { color: $color-amber; background: $color-amber; }
+        }
+
+        h3 {
+          font-size: 1.1rem;
+          font-weight: 800;
+          color: $color-text-white;
+        }
+      }
+
+      .count {
+        font-family: $font-mono;
+        font-size: 0.725rem;
+        color: $color-text-dim;
+      }
+    }
+
+    &-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+}

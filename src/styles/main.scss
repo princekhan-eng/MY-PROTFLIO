@@ -1,0 +1,27 @@
+// ==========================================
+// 100% PURE SCSS MASTER ENTRY POINT
+// (ZERO TAILWIND DEPENDENCIES)
+// ==========================================
+
+@use 'variables' as *;
+@use 'reset' as *;
+@use 'mixins' as *;
+@use 'animations' as *;
+@use 'typography' as *;
+@use 'layout' as *;
+@use 'buttons' as *;
+@use 'cards' as *;
+@use 'badges' as *;
+@use 'navbar' as *;
+@use 'hero' as *;
+@use 'stats' as *;
+@use 'services' as *;
+@use 'projects' as *;
+@use 'about' as *;
+@use 'experience' as *;
+@use 'skills' as *;
+@use 'education' as *;
+@use 'contact' as *;
+@use 'showcase' as *;
+@use 'modal' as *;
+@use 'footer' as *;

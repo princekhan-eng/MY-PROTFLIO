@@ -1,0 +1,197 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS FOOTER
+// ==========================================
+
+.footer {
+  position: relative;
+  background: $color-bg-base;
+  border-top: 1px solid $color-border-subtle;
+  padding: 4.5rem 0 2.5rem;
+  overflow: hidden;
+
+  &__glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36rem;
+    height: 7rem;
+    background: rgba(6, 182, 212, 0.08);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  // Brand Column
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+    }
+
+    &-desc {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: $color-text-muted;
+      max-width: 22rem;
+    }
+  }
+
+  // Navigation Links Column
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    &-title {
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: $color-cyan;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      a {
+        font-size: 0.875rem;
+        color: $color-text-muted;
+        transition: color $transition-fast, transform $transition-fast;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+
+        &:hover {
+          color: $color-text-white;
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+
+  // Social Links Column
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    &-title {
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: $color-cyan;
+    }
+
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+
+      .social-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: $radius-full;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid $color-border-subtle;
+        @include flex-center;
+        color: $color-text-muted;
+        transition: all $transition-fast;
+
+        svg {
+          width: 1.2rem;
+          height: 1.2rem;
+        }
+
+        &:hover {
+          color: $color-text-white;
+          border-color: $color-border-cyan;
+          background: rgba(6, 182, 212, 0.12);
+          transform: translateY(-2px);
+          box-shadow: $glow-cyan-sm;
+        }
+
+        &--whatsapp:hover {
+          border-color: rgba(16, 185, 129, 0.4);
+          background: rgba(16, 185, 129, 0.12);
+          color: $color-emerald;
+          box-shadow: $glow-emerald-sm;
+        }
+      }
+    }
+  }
+
+  // CTA Banner
+  &__cta {
+    @include flex-between;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.75rem 2rem;
+    border-radius: $radius-xl;
+    background: $color-bg-card;
+    border: 1px solid $color-border-subtle;
+    margin-bottom: 3rem;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
+
+    &-text {
+      h4 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        margin-bottom: 0.2rem;
+      }
+      p {
+        font-size: 0.8rem;
+        color: $color-text-muted;
+      }
+    }
+  }
+
+  // Copyright Row
+  &__copyright {
+    @include flex-between;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 2rem;
+    border-top: 1px solid $color-border-faint;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-text-dim;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
+  }
+}

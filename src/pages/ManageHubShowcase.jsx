@@ -7,10 +7,10 @@ export default function ManageHubShowcase() {
 
   // Sample tasks state
   const [tasks, setTasks] = useState([
-    { id: 1, title: "Design Dark Mode UI System", category: "Design", status: "In Progress", priority: "High", assignee: "Elena R." },
-    { id: 2, title: "Implement REST API Endpoints", category: "Engineering", status: "Completed", priority: "High", assignee: "Alex R." },
-    { id: 3, title: "Configure Kubernetes Pipelines", category: "DevOps", status: "In Review", priority: "Medium", assignee: "Marcus C." },
-    { id: 4, title: "Q3 Product Roadmap Planning", category: "Product", status: "To Do", priority: "Medium", assignee: "Sarah J." },
+    { id: 1, title: "Design Dark Mode SCSS Architecture", category: "Design", status: "In Progress", priority: "High", assignee: "Elena R." },
+    { id: 2, title: "Implement Secure REST API Endpoints", category: "Engineering", status: "Completed", priority: "High", assignee: "Alex R." },
+    { id: 3, title: "Configure Cloud CI/CD Deployment", category: "DevOps", status: "In Review", priority: "Medium", assignee: "Marcus C." },
+    { id: 4, title: "Q4 Roadmap Architecture Planning", category: "Product", status: "To Do", priority: "Medium", assignee: "Sarah J." },
   ]);
 
   const handleMoveTask = (id) => {
@@ -50,7 +50,7 @@ export default function ManageHubShowcase() {
       author: "Elena Rostova",
       role: "UI/UX Designer",
       category: "Announcement",
-      content: "🎨 Figma dark theme components released! Check out the glassmorphic controls.",
+      content: "🎨 SCSS dark luxury components released! Check out the glassmorphic controls and micro-animations.",
       likes: 12,
       time: "4h ago",
     },
@@ -81,382 +81,333 @@ export default function ManageHubShowcase() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white pt-20 sm:pt-24 pb-12 sm:pb-16 px-3 sm:px-6 md:px-10 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Navigation Back Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8">
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-400 hover:text-cyan-400 transition"
-          >
-            ← Back to Projects
-          </Link>
+    <div className="page-wrapper">
+      {/* Background Orbs */}
+      <div className="ambient-orb ambient-orb--indigo animate-drift-1" style={{ top: "4rem", right: "8%" }}></div>
+      <div className="ambient-orb ambient-orb--cyan animate-drift-2" style={{ bottom: "8rem", left: "6%" }}></div>
+      <div className="bg-grid-overlay"></div>
 
-          <a
-            href="https://mengment-app.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs tracking-wider transition shadow-lg shadow-indigo-600/30"
-          >
-            Launch Live Application 🚀
-          </a>
-        </div>
+      <div className="container">
+        <section className="showcase">
 
-        {/* Hero Section */}
-        <div className="relative rounded-2xl sm:rounded-3xl border border-indigo-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 p-5 sm:p-8 lg:p-12 mb-8 sm:mb-10 overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          
-          <div className="relative z-10 max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold tracking-widest uppercase bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 mb-4 sm:mb-6">
-              Full Stack Company Management System
-            </span>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight">
-              ManageHub <span className="text-indigo-400">Workspace</span>
-            </h1>
-            <p className="text-slate-400 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8">
-              A comprehensive team collaboration platform designed for managing company projects, employee directories, real-time task tracking, and interactive team updates sharing.
-            </p>
+          {/* Navigation Back Header */}
+          <div className="showcase__nav-header animate-fade-down">
+            <Link to="/projects" className="back-link">
+              ← BACK TO PROJECTS
+            </Link>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a
-                href="https://mengment-app.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-semibold text-xs sm:text-sm transition shadow-lg shadow-indigo-500/30"
-              >
-                Visit Live Site (mengment-app.vercel.app)
-              </a>
-              <button
-                onClick={() => setActiveTab("onboarding")}
-                className="w-full sm:w-auto text-center px-6 py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold text-xs sm:text-sm transition"
-              >
-                Try Interactive Onboarding Flow
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Feature Tabs Bar */}
-        <div className="flex gap-2 border-b border-slate-800 pb-4 mb-6 sm:mb-8 overflow-x-auto no-scrollbar">
-          {[
-            { id: "overview", label: "Dashboard Overview" },
-            { id: "onboarding", label: "5-Step Onboarding" },
-            { id: "tasks", label: "Task Management" },
-            { id: "employees", label: "Employee Directory" },
-            { id: "updates", label: "Share Updates Feed" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wider whitespace-nowrap transition-all ${
-                activeTab === tab.id
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                  : "bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800"
-              }`}
+            <a
+              href="https://mengment-app.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--indigo btn--sm"
             >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* TAB 1: OVERVIEW */}
-        {activeTab === "overview" && (
-          <div className="space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              <div className="p-5 sm:p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1 sm:mb-2">Total Tasks</p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">128</h3>
-                <p className="text-[10px] sm:text-xs text-emerald-400 mt-2">↑ +14% this month</p>
-              </div>
-              <div className="p-5 sm:p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1 sm:mb-2">Active Employees</p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">48</h3>
-                <p className="text-[10px] sm:text-xs text-indigo-400 mt-2">4 Departments</p>
-              </div>
-              <div className="p-5 sm:p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1 sm:mb-2">Active Projects</p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">12</h3>
-                <p className="text-[10px] sm:text-xs text-cyan-400 mt-2">3 In Review</p>
-              </div>
-              <div className="p-5 sm:p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1 sm:mb-2">Company Updates</p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">84</h3>
-                <p className="text-[10px] sm:text-xs text-emerald-400 mt-2">Live Newsfeed</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-              <div className="lg:col-span-2 p-5 sm:p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <h3 className="text-base sm:text-lg font-bold mb-4">Core Platform Highlights</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-indigo-400 font-semibold text-xs sm:text-sm">📋 Task Kanban & Tracking</span>
-                    <p className="text-xs text-slate-400 mt-2">Filter, prioritize, and update company deliverables with real-time status transitions.</p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-indigo-400 font-semibold text-xs sm:text-sm">👥 Employee Management</span>
-                    <p className="text-xs text-slate-400 mt-2">Role management, department categorization, contact records, and active status tracking.</p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-indigo-400 font-semibold text-xs sm:text-sm">📣 Share Updates Feed</span>
-                    <p className="text-xs text-slate-400 mt-2">Broadcast company milestones, announcements, like posts, and foster team collaboration.</p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-indigo-400 font-semibold text-xs sm:text-sm">🚀 5-Step Guided Onboarding</span>
-                    <p className="text-xs text-slate-400 mt-2">Interactive setup wizard for workspace creation and initial team configuration.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-5 sm:p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <h3 className="text-base sm:text-lg font-bold mb-4">Quick Links</h3>
-                <div className="space-y-3">
-                  <a
-                    href="https://mengment-app.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-3 rounded-xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs font-semibold text-center hover:bg-indigo-600/30 transition"
-                  >
-                    Open Live App (mengment-app.vercel.app) ↗
-                  </a>
-                  <button
-                    onClick={() => setActiveTab("tasks")}
-                    className="w-full p-3 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold text-center hover:bg-slate-700 transition"
-                  >
-                    View Task Board Demo
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("employees")}
-                    className="w-full p-3 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold text-center hover:bg-slate-700 transition"
-                  >
-                    View Employee Directory
-                  </button>
-                </div>
-              </div>
-            </div>
+              Launch Production App 🚀
+            </a>
           </div>
-        )}
 
-        {/* TAB 2: ONBOARDING */}
-        {activeTab === "onboarding" && (
-          <div className="max-w-3xl mx-auto p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 bg-slate-900/80 shadow-2xl">
-            <div className="flex gap-1.5 sm:gap-2 mb-6 sm:mb-8">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <div
-                  key={s}
-                  className={`h-1.5 flex-1 rounded-full transition-all ${
-                    s <= activeStep ? "bg-indigo-500" : "bg-slate-800"
-                  }`}
-                ></div>
-              ))}
-            </div>
+          {/* Hero Banner */}
+          <div className="showcase__hero animate-fade-up">
+            <div className="showcase__hero-content">
+              <span className="badge-pill badge-pill--indigo" style={{ alignSelf: "flex-start" }}>
+                Enterprise Workspace Application
+              </span>
+              
+              <h1 className="showcase__hero-title">
+                ManageHub <span className="text-gradient-violet">Platform.</span>
+              </h1>
 
-            <p className="text-[10px] sm:text-xs font-semibold text-indigo-400 uppercase tracking-widest mb-2">
-              Step {activeStep} of 5
-            </p>
+              <p className="showcase__hero-desc">
+                A comprehensive team collaboration system engineered for tracking multi-department projects, real-time Kanban tasks, employee directories, and interactive corporate newsfeeds.
+              </p>
 
-            {activeStep === 1 && (
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold mb-3">Welcome to ManageHub</h2>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  A modern workspace designed to help your team manage projects, tasks, employees, and company updates from one unified dashboard.
-                </p>
-              </div>
-            )}
-            {activeStep === 2 && (
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold mb-3">Organization & Workspace Setup</h2>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  Configure your company workspace name, industry domain, and core working departments (Engineering, Product, Design, Marketing).
-                </p>
-              </div>
-            )}
-            {activeStep === 3 && (
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold mb-3">Team & Employee Directory</h2>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  Invite your team members, set roles (Admin, Manager, Contributor), and assign initial responsibilities.
-                </p>
-              </div>
-            )}
-            {activeStep === 4 && (
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold mb-3">Task Workflow Preferences</h2>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  Set up Kanban columns, priority flags (High, Medium, Low), and automated notifications for due dates.
-                </p>
-              </div>
-            )}
-            {activeStep === 5 && (
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold mb-3">Ready to Launch! 🚀</h2>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  Your team workspace is configured! You can now start tracking tasks, managing employees, and posting company updates.
-                </p>
-              </div>
-            )}
-
-            <div className="flex justify-between items-center mt-6 sm:mt-8 pt-4 border-t border-slate-800">
-              <button
-                disabled={activeStep === 1}
-                onClick={() => setActiveStep(activeStep - 1)}
-                className="px-4 py-2 rounded-xl border border-slate-700 text-slate-300 text-xs font-semibold disabled:opacity-30"
-              >
-                Previous
-              </button>
-
-              {activeStep < 5 ? (
-                <button
-                  onClick={() => setActiveStep(activeStep + 1)}
-                  className="px-5 sm:px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-semibold text-xs text-white"
-                >
-                  Continue →
-                </button>
-              ) : (
+              <div className="showcase__hero-ctas">
                 <a
                   href="https://mengment-app.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 sm:px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-semibold text-xs text-white"
+                  className="btn btn--indigo"
                 >
-                  Enter Workspace Live 🚀
+                  Visit Live Site (mengment-app.vercel.app)
                 </a>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* TAB 3: TASKS */}
-        {activeTab === "tasks" && (
-          <div className="space-y-4 sm:space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900/50 p-4 rounded-2xl border border-slate-800">
-              <h3 className="text-base sm:text-lg font-bold">Company Task Board</h3>
-              <span className="text-xs text-slate-400">{tasks.length} Active Tasks</span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {["To Do", "In Progress", "In Review", "Completed"].map((status) => (
-                <div key={status} className="bg-slate-900/40 border border-slate-800 p-4 rounded-2xl">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 flex justify-between">
-                    <span>{status}</span>
-                    <span className="text-indigo-400">{tasks.filter(t => t.status === status).length}</span>
-                  </h4>
-
-                  <div className="space-y-3">
-                    {tasks.filter(t => t.status === status).map((task) => (
-                      <div
-                        key={task.id}
-                        onClick={() => handleMoveTask(task.id)}
-                        className="p-4 bg-slate-950 border border-slate-800/80 rounded-xl space-y-2 cursor-pointer hover:border-indigo-500/50 transition"
-                        title="Click to advance status"
-                      >
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-wider ${
-                          task.priority === "High" ? "bg-red-500/20 text-red-400" : "bg-yellow-500/20 text-yellow-400"
-                        }`}>
-                          {task.priority} Priority
-                        </span>
-                        <h5 className="text-sm font-semibold text-white">{task.title}</h5>
-                        <div className="flex justify-between items-center text-xs text-slate-500 pt-2 border-t border-slate-900">
-                          <span>{task.category}</span>
-                          <span className="text-indigo-300 font-medium">{task.assignee}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* TAB 4: EMPLOYEES */}
-        {activeTab === "employees" && (
-          <div className="space-y-4 sm:space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900/50 p-4 rounded-2xl border border-slate-800">
-              <h3 className="text-base sm:text-lg font-bold">Employee Directory</h3>
-              <span className="text-xs text-slate-400">4 Active Team Members</span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {employees.map((emp) => (
-                <div key={emp.id} className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 text-center space-y-3">
-                  <img
-                    src={emp.avatar}
-                    alt={emp.name}
-                    className="w-14 sm:w-16 h-14 sm:h-16 rounded-full mx-auto object-cover border-2 border-indigo-500/30"
-                  />
-                  <div>
-                    <h4 className="font-bold text-sm sm:text-base text-white">{emp.name}</h4>
-                    <p className="text-xs text-indigo-400">{emp.role}</p>
-                  </div>
-                  <div className="flex justify-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[10px]">
-                      {emp.dept}
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px]">
-                      {emp.status}
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-500 pt-2 border-t border-slate-800">
-                    {emp.tasks} Tasks Completed
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* TAB 5: SHARE UPDATES */}
-        {activeTab === "updates" && (
-          <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
-            {/* Create Post Box */}
-            <form onSubmit={handleAddPost} className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-              <textarea
-                value={newPost}
-                onChange={(e) => setNewPost(e.target.value)}
-                placeholder="Share an update or announcement with the team..."
-                className="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 text-xs sm:text-sm focus:outline-none focus:border-indigo-500 resize-none h-24"
-              ></textarea>
-              <div className="flex justify-end">
                 <button
-                  type="submit"
-                  className="w-full sm:w-auto px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition"
+                  onClick={() => setActiveTab("onboarding")}
+                  className="btn btn--glass"
                 >
-                  Share Update 🚀
+                  Interactive Onboarding Flow
                 </button>
               </div>
-            </form>
-
-            {/* Updates List */}
-            <div className="space-y-3 sm:space-y-4">
-              {updates.map((post) => (
-                <div key={post.id} className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-bold text-xs sm:text-sm text-white">{post.author}</h4>
-                      <p className="text-[10px] sm:text-xs text-slate-500">{post.role}</p>
-                    </div>
-                    <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] uppercase tracking-wider font-semibold">
-                      {post.category}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{post.content}</p>
-                  <div className="flex justify-between items-center pt-3 border-t border-slate-800/80 text-xs text-slate-500">
-                    <span>{post.time}</span>
-                    <button
-                      onClick={() => handleLike(post.id)}
-                      className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 transition font-medium"
-                    >
-                      ❤️ {post.likes} Likes
-                    </button>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
-        )}
 
+          {/* Feature Tabs Bar */}
+          <div className="showcase__tab-bar">
+            {[
+              { id: "overview", label: "Dashboard Overview" },
+              { id: "onboarding", label: "5-Step Onboarding" },
+              { id: "tasks", label: "Kanban Task Board" },
+              { id: "employees", label: "Employee Directory" },
+              { id: "updates", label: "Share Updates Feed" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* TAB 1: OVERVIEW */}
+          {activeTab === "overview" && (
+            <div className="animate-fade-up" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.25rem" }}>
+                <div className="card-cyber">
+                  <p className="font-mono text-muted" style={{ fontSize: "0.75rem", textTransform: "uppercase" }}>Total Tasks</p>
+                  <h3 style={{ fontSize: "2rem", margin: "0.4rem 0" }}>128</h3>
+                  <p className="text-emerald" style={{ fontSize: "0.8rem", fontWeight: "700" }}>↑ +14% completed this cycle</p>
+                </div>
+                <div className="card-cyber">
+                  <p className="font-mono text-muted" style={{ fontSize: "0.75rem", textTransform: "uppercase" }}>Active Team</p>
+                  <h3 style={{ fontSize: "2rem", margin: "0.4rem 0" }}>48</h3>
+                  <p className="text-violet" style={{ fontSize: "0.8rem", fontWeight: "700" }}>4 Departments</p>
+                </div>
+                <div className="card-cyber">
+                  <p className="font-mono text-muted" style={{ fontSize: "0.75rem", textTransform: "uppercase" }}>Live Projects</p>
+                  <h3 style={{ fontSize: "2rem", margin: "0.4rem 0" }}>12</h3>
+                  <p className="text-cyan" style={{ fontSize: "0.8rem", fontWeight: "700" }}>3 In Review</p>
+                </div>
+                <div className="card-cyber">
+                  <p className="font-mono text-muted" style={{ fontSize: "0.75rem", textTransform: "uppercase" }}>Company Updates</p>
+                  <h3 style={{ fontSize: "2rem", margin: "0.4rem 0" }}>84</h3>
+                  <p className="text-emerald" style={{ fontSize: "0.8rem", fontWeight: "700" }}>Live Newsfeed</p>
+                </div>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
+                <div className="card-cyber" style={{ padding: "2rem" }}>
+                  <h3 style={{ fontSize: "1.25rem", marginBottom: "1.5rem" }}>Core System Architecture</h3>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.25rem" }}>
+                    <div style={{ padding: "1.25rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px" }}>
+                      <span className="text-violet" style={{ fontWeight: "700", fontSize: "0.9rem" }}>📋 Kanban Task Board</span>
+                      <p style={{ fontSize: "0.825rem", color: "#94a3b8", marginTop: "0.5rem" }}>Multi-tier priority filters, dynamic state progression, and due date management.</p>
+                    </div>
+                    <div style={{ padding: "1.25rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px" }}>
+                      <span className="text-violet" style={{ fontWeight: "700", fontSize: "0.9rem" }}>👥 Employee Directory</span>
+                      <p style={{ fontSize: "0.825rem", color: "#94a3b8", marginTop: "0.5rem" }}>Role definitions, department categorizations, task counts, and presence indicators.</p>
+                    </div>
+                    <div style={{ padding: "1.25rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px" }}>
+                      <span className="text-violet" style={{ fontWeight: "700", fontSize: "0.9rem" }}>📣 Real-Time Updates</span>
+                      <p style={{ fontSize: "0.825rem", color: "#94a3b8", marginTop: "0.5rem" }}>Broadcast company milestones, announcements, live like reactions, and announcements.</p>
+                    </div>
+                    <div style={{ padding: "1.25rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px" }}>
+                      <span className="text-violet" style={{ fontWeight: "700", fontSize: "0.9rem" }}>🚀 5-Step Guided Setup</span>
+                      <p style={{ fontSize: "0.825rem", color: "#94a3b8", marginTop: "0.5rem" }}>Interactive wizard for creating organizational units and inviting members.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: ONBOARDING */}
+          {activeTab === "onboarding" && (
+            <div className="showcase__wizard animate-fade-up">
+              <div className="showcase__wizard-progress">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <div key={s} className={`bar ${s <= activeStep ? "active" : ""}`}></div>
+                ))}
+              </div>
+
+              <div className="showcase__wizard-body">
+                <span className="badge-pill badge-pill--indigo" style={{ alignSelf: "flex-start" }}>
+                  Step {activeStep} of 5
+                </span>
+
+                {activeStep === 1 && (
+                  <div>
+                    <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Welcome to ManageHub</h2>
+                    <p style={{ color: "#cbd5e1" }}>
+                      A high-velocity workspace engineered to streamline company deliverables, task assignments, staff records, and interactive team newsfeeds.
+                    </p>
+                  </div>
+                )}
+                {activeStep === 2 && (
+                  <div>
+                    <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Workspace & Department Setup</h2>
+                    <p style={{ color: "#cbd5e1" }}>
+                      Configure your organization name, industry domain, and operational departments (Engineering, Product, Design, QA).
+                    </p>
+                  </div>
+                )}
+                {activeStep === 3 && (
+                  <div>
+                    <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Team Roster & Permissions</h2>
+                    <p style={{ color: "#cbd5e1" }}>
+                      Invite initial team members, designate access roles (Admin, Lead Engineer, Contributor), and set default assignments.
+                    </p>
+                  </div>
+                )}
+                {activeStep === 4 && (
+                  <div>
+                    <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Workflow & Task Pipelines</h2>
+                    <p style={{ color: "#cbd5e1" }}>
+                      Configure Kanban columns, priority flags (Urgent, High, Normal), and sprint review cycles.
+                    </p>
+                  </div>
+                )}
+                {activeStep === 5 && (
+                  <div>
+                    <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Workspace Ready for Launch! 🚀</h2>
+                    <p style={{ color: "#cbd5e1" }}>
+                      Your team environment is fully provisioned. You are ready to start dispatching tasks and publishing team updates.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div className="showcase__wizard-footer">
+                <button
+                  disabled={activeStep === 1}
+                  onClick={() => setActiveStep(activeStep - 1)}
+                  className="btn btn--glass btn--sm"
+                  style={{ opacity: activeStep === 1 ? 0.3 : 1, pointerEvents: activeStep === 1 ? "none" : "auto" }}
+                >
+                  Previous
+                </button>
+
+                {activeStep < 5 ? (
+                  <button
+                    onClick={() => setActiveStep(activeStep + 1)}
+                    className="btn btn--indigo btn--sm"
+                  >
+                    Continue →
+                  </button>
+                ) : (
+                  <a
+                    href="https://mengment-app.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn--emerald btn--sm"
+                  >
+                    Enter Workspace Live 🚀
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: TASKS KANBAN */}
+          {activeTab === "tasks" && (
+            <div className="showcase__kanban animate-fade-up">
+              <div className="showcase__kanban-header">
+                <h3>Interactive Kanban Task Board</h3>
+                <span className="badge-pill badge-pill--cyan">
+                  💡 Click any card to advance status
+                </span>
+              </div>
+
+              <div className="showcase__kanban-columns">
+                {["To Do", "In Progress", "In Review", "Completed"].map((status) => (
+                  <div key={status} className="showcase__kanban-column">
+                    <div className="showcase__kanban-column-header">
+                      <h4>{status}</h4>
+                      <span className="count">{tasks.filter(t => t.status === status).length}</span>
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                      {tasks.filter(t => t.status === status).map((task) => (
+                        <div
+                          key={task.id}
+                          onClick={() => handleMoveTask(task.id)}
+                          className="showcase__kanban-card"
+                          title="Click to advance status"
+                        >
+                          <span className={`badge-pill ${task.priority === "High" ? "badge-pill--rose" : "badge-pill--amber"}`} style={{ alignSelf: "flex-start", fontSize: "0.65rem", padding: "0.2rem 0.5rem" }}>
+                            {task.priority} Priority
+                          </span>
+                          <h5 className="card-title">{task.title}</h5>
+                          <div className="card-meta">
+                            <span>{task.category}</span>
+                            <span className="assignee">{task.assignee}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: EMPLOYEES */}
+          {activeTab === "employees" && (
+            <div className="showcase__employees animate-fade-up">
+              <div className="card-cyber" style={{ padding: "1.25rem 1.75rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <h3>Employee Directory</h3>
+                <span className="font-mono text-muted" style={{ fontSize: "0.8rem" }}>{employees.length} Active Staff Members</span>
+              </div>
+
+              <div className="showcase__employees-grid">
+                {employees.map((emp) => (
+                  <div key={emp.id} className="showcase__employees-card">
+                    <img src={emp.avatar} alt={emp.name} className="avatar" />
+                    <div>
+                      <h4 className="name">{emp.name}</h4>
+                      <p className="role">{emp.role}</p>
+                    </div>
+                    <div className="badges-row">
+                      <span className="badge-mono">{emp.dept}</span>
+                      <span className="badge-pill badge-pill--emerald" style={{ padding: "0.15rem 0.5rem", fontSize: "0.65rem" }}>{emp.status}</span>
+                    </div>
+                    <p className="task-count">{emp.tasks} Tasks Delivered</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 5: SHARE UPDATES */}
+          {activeTab === "updates" && (
+            <div className="showcase__updates animate-fade-up">
+              <form onSubmit={handleAddPost} className="showcase__updates-form">
+                <textarea
+                  value={newPost}
+                  onChange={(e) => setNewPost(e.target.value)}
+                  placeholder="Share a milestone or technical update with the team..."
+                ></textarea>
+                <div className="submit-row">
+                  <button type="submit" className="btn btn--indigo btn--sm">
+                    Share Update 🚀
+                  </button>
+                </div>
+              </form>
+
+              <div className="showcase__updates-list">
+                {updates.map((post) => (
+                  <div key={post.id} className="showcase__updates-card">
+                    <div className="author-row">
+                      <div className="author-info">
+                        <span className="name">{post.author}</span>
+                        <span className="role">{post.role}</span>
+                      </div>
+                      <span className="badge-pill badge-pill--indigo">{post.category}</span>
+                    </div>
+                    <p className="content">{post.content}</p>
+                    <div className="footer-row">
+                      <span>{post.time}</span>
+                      <button onClick={() => handleLike(post.id)} className="like-btn">
+                        ❤️ {post.likes} Likes
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </section>
       </div>
     </div>
   );

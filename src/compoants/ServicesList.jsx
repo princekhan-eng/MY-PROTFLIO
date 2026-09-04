@@ -3,75 +3,76 @@ export default function ServicesList() {
     {
       icon: "💻",
       title: "Full-Stack Web Development",
-      desc: "Custom web applications built from scratch using React 19, Node.js, Express, and MongoDB. Clean component architecture and scalable backend logic.",
-      tags: ["MERN Stack", "React 19", "Node.js", "Express", "MongoDB"]
+      desc: "Custom web applications engineered from scratch using React 19, Node.js, Express, and MongoDB. Clean modular architecture, database schema design, and performant REST API endpoints.",
+      tags: ["MERN Stack", "React 19", "Node.js", "Express", "MongoDB", "SCSS / CSS Modules"],
+      glowClass: "services-section__card-glow--cyan"
     },
     {
       icon: "⚡",
-      title: "Custom SaaS & Enterprise Platforms",
-      desc: "Interactive workspaces, team onboarding flows, task management Kanban boards, and custom business dashboards tailored to operational needs.",
-      tags: ["Kanban Board", "Employee Directory", "Dashboard", "Onboarding"]
+      title: "Enterprise SaaS & Workspaces",
+      desc: "Interactive dashboards, multi-step employee onboarding flows, Kanban task managers, and bespoke workflow platforms built for scale and operational clarity.",
+      tags: ["Kanban Board", "Employee Directory", "Interactive Wizard", "SaaS UI"],
+      glowClass: "services-section__card-glow--violet"
     },
     {
       icon: "🔒",
-      title: "REST API & Authentication Systems",
-      desc: "Secure API endpoints, JWT token authentication stored in HTTP-only cookies, password hashing, and third-party API integrations.",
-      tags: ["REST API", "JWT Security", "Cookies", "Postman Verified"]
+      title: "REST APIs & Security Architecture",
+      desc: "Production-grade backend architectures featuring JWT authentication stored in HTTP-only cookies, role-based authorization, rate limiting, and Postman-tested APIs.",
+      tags: ["RESTful API", "JWT Security", "HTTP-Only Cookies", "Bcrypt", "Postman Verified"],
+      glowClass: "services-section__card-glow--emerald"
     },
     {
       icon: "🚀",
-      title: "UI/UX & Performance Optimization",
-      desc: "Transforming slow legacy UI into lightning-fast 60fps web apps with 95+ Lighthouse scores, responsive layouts, and modern dark aesthetics.",
-      tags: ["Tailwind CSS", "Framer Motion", "Lighthouse 95+", "Responsive"]
+      title: "UI/UX & Performance Engineering",
+      desc: "Upgrading slow and legacy web interfaces into silky-smooth 60fps experiences with 95+ Google Lighthouse scores, mobile-first responsiveness, and luxury dark themes.",
+      tags: ["SCSS", "Lighthouse 95+", "Responsive Design", "Micro-Animations"],
+      glowClass: "services-section__card-glow--indigo"
     }
   ];
 
   return (
-    <div className="py-12">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="h-px w-12 bg-gradient-to-r from-cyan-500 to-transparent"></div>
-        <p className="text-cyan-400/80 text-xs font-medium tracking-[0.3em] uppercase">
-          What I Deliver
-        </p>
-      </div>
-
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-            Services & <span className="text-slate-500">Solutions.</span>
+    <section className="services-section">
+      {/* Section Header */}
+      <div className="services-section__header">
+        <div className="services-section__header-info">
+          <span className="section-label">Engineering Services</span>
+          <h2>
+            Services & <span className="text-gradient-cyan">Solutions.</span>
           </h2>
-          <p className="text-slate-400 text-sm mt-2 max-w-xl">
-            High-quality software engineering services tailored to startups, agencies, and enterprise clients.
+          <p style={{ marginTop: "0.5rem", fontSize: "1rem" }}>
+            High-caliber software development and technical solutions tailored for startups, product teams, and businesses.
           </p>
+        </div>
+
+        <div className="services-section__header-badge">
+          ✨ Production-Ready Code Standards
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Services Grid */}
+      <div className="services-section__grid">
         {services.map((srv, idx) => (
-          <div
-            key={idx}
-            className="group p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#0a0a0a] hover:border-cyan-500/30 hover:-translate-y-1 transition-all duration-500 shadow-xl flex flex-col justify-between"
-          >
+          <div key={idx} className="services-section__card">
+            {/* Ambient Hover Glow */}
+            <div className={`services-section__card-glow ${srv.glowClass}`}></div>
+
             <div>
-              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <div className="services-section__card-icon">
                 {srv.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+              <h3 className="services-section__card-title">
                 {srv.title}
               </h3>
 
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+              <p className="services-section__card-desc">
                 {srv.desc}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+            <div className="services-section__card-tags">
               {srv.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full text-[11px] font-mono bg-white/[0.03] text-slate-400 border border-white/5"
-                >
+                <span key={tag} className="badge-mono">
                   #{tag}
                 </span>
               ))}
@@ -79,6 +80,6 @@ export default function ServicesList() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

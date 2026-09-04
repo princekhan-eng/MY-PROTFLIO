@@ -41,84 +41,66 @@ export default function EducationCertifications() {
   ];
 
   return (
-    <div className="py-12">
+    <section className="education-section">
       {/* Header */}
-      <div className="flex items-center gap-4 mb-4">
-        <div className="h-px w-12 bg-gradient-to-r from-cyan-500 to-transparent"></div>
-        <p className="text-cyan-400/80 text-xs font-medium tracking-[0.3em] uppercase">
-          Academic Education & Credentials
-        </p>
+      <div className="education-section__header">
+        <span className="section-label">Academic & Industry Qualifications</span>
+        <h2>
+          Education & <span className="text-gradient-cyan">Certifications.</span>
+        </h2>
       </div>
 
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-12">
-        Education & <span className="text-slate-500">Certifications.</span>
-      </h2>
-
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <div className="education-section__grid">
         
-        {/* Left: Education Timeline Cards (2 cols) */}
-        <div className="lg:col-span-2 space-y-4">
-          <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
+        {/* Left Column: Education */}
+        <div className="education-section__column">
+          <h3 className="education-section__column-title">
             Academic Background
           </h3>
 
           {education.map((edu, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-2xl border border-white/10 bg-[#0a0a0a] hover:border-cyan-500/30 transition-all duration-300 shadow-xl space-y-3"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-2xl">🎓</span>
-                <span className={`px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-widest border ${
-                  edu.status === "Currently Studying"
-                    ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30"
-                    : "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                }`}>
+            <div key={idx} className="education-section__card">
+              <div className="education-section__card-top">
+                <span className="icon">🎓</span>
+                <span className={`badge-pill ${edu.status === "Currently Studying" ? "badge-pill--cyan" : "badge-pill--emerald"}`}>
                   {edu.status}
                 </span>
               </div>
 
               <div>
-                <h4 className="text-base font-bold text-white leading-snug">
-                  {edu.degree}
-                </h4>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  📍 {edu.location} • {edu.period}
-                </p>
+                <h4 className="education-section__card-title">{edu.degree}</h4>
+                <p className="education-section__card-meta">📍 {edu.location} • {edu.period}</p>
               </div>
 
-              <p className="text-slate-400 text-xs leading-relaxed border-t border-white/5 pt-3">
+              <p className="education-section__card-desc">
                 {edu.details}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Right: Certifications Grid (3 cols) */}
-        <div className="lg:col-span-3 space-y-4">
-          <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
+        {/* Right Column: Certifications */}
+        <div className="education-section__column">
+          <h3 className="education-section__column-title">
             Industry Certifications & Credentials
           </h3>
 
           {certifications.map((cert, idx) => (
-            <div
-              key={idx}
-              className="p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-            >
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-emerald-400">📜</span>
-                  <h4 className="text-base font-bold text-white">{cert.title}</h4>
+            <div key={idx} className="education-section__cert-card">
+              <div className="education-section__cert-card-info">
+                <div className="cert-title-row">
+                  <span style={{ color: "#10b981" }}>📜</span>
+                  <h4>{cert.title}</h4>
                 </div>
-                <p className="text-xs text-slate-400">
-                  Issued by <span className="text-slate-200 font-medium">{cert.issuer}</span> • {cert.date}
+                <p className="cert-issuer">
+                  Issued by <strong>{cert.issuer}</strong> • {cert.date}
                 </p>
-                <p className="text-xs text-slate-500 font-mono pt-1">
+                <p className="cert-skills">
                   Skills: {cert.skills}
                 </p>
               </div>
 
-              <span className="self-start sm:self-center shrink-0 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider bg-white/5 border border-white/10 text-slate-300">
+              <span className="badge-pill badge-pill--cyan" style={{ alignSelf: "flex-start" }}>
                 {cert.badge}
               </span>
             </div>
@@ -126,6 +108,6 @@ export default function EducationCertifications() {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }

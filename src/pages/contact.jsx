@@ -40,225 +40,202 @@ export default function Contact({ onOpenATS }) {
       const result = await response.json();
 
       if (result.success) {
-        setStatus({ state: "success", message: "Message sent — I'll get back to you soon." });
+        setStatus({ state: "success", message: "Message sent successfully — I will get back to you within 24 hours." });
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         console.error(result);
-        setStatus({ state: "error", message: "Message simulated: Thank you! Please also email mluqmakhan@gmail.com directly." });
+        setStatus({ state: "error", message: "Message note logged: You can also reach me directly at mluqmakhan@gmail.com." });
       }
     } catch (error) {
       console.error(error);
-      setStatus({ state: "error", message: "Something went wrong. Please email mluqmakhan@gmail.com directly." });
+      setStatus({ state: "error", message: "Network error. Please email mluqmakhan@gmail.com directly." });
     }
   };
 
   return (
-    <div className="relative bg-[#050505] text-white min-h-screen overflow-hidden">
+    <div className="page-wrapper">
+      {/* Background Orbs */}
+      <div className="ambient-orb ambient-orb--cyan animate-drift-1" style={{ top: "6rem", right: "8%" }}></div>
+      <div className="ambient-orb ambient-orb--violet animate-drift-2" style={{ bottom: "10rem", left: "6%" }}></div>
+      <div className="bg-grid-overlay"></div>
 
-      {/* Lightweight Radial Background */}
-      <div 
-        className="absolute inset-0 pointer-events-none -z-10"
-        style={{
-          background: `
-            radial-gradient(circle at 80% 25%, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
-            radial-gradient(circle at 20% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 40%)
-          `
-        }}
-      ></div>
+      <div className="container">
+        <section className="contact-section">
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36">
+          {/* Header */}
+          <div className="contact-section__header animate-fade-up">
+            <div>
+              <span className="section-label">Start a Project / Hire Me</span>
+              <h1>
+                Let's build <br />
+                <span className="text-gradient-cyan">together.</span>
+              </h1>
+              <p style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
+                Have an engineering opening, freelance project, or SaaS system in mind? Send a message and let's discuss details.
+              </p>
+            </div>
 
-        {/* Header */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <div className="flex items-center gap-4 mb-5 sm:mb-6">
-            <div className="h-px w-12 bg-gradient-to-r from-cyan-500 to-transparent"></div>
-            <p className="text-cyan-400/80 text-xs font-medium tracking-[0.3em] sm:tracking-[0.4em] uppercase">
-              Get In Touch
-            </p>
+            {onOpenATS && (
+              <button
+                onClick={onOpenATS}
+                className="btn btn--cyber"
+              >
+                ⚡ View ATS Resume Format
+              </button>
+            )}
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95]">
-              Let's work <br />
-              <span className="text-slate-500">together.</span>
-            </h1>
+          {/* Grid Layout */}
+          <div className="contact-section__grid">
 
-            <button
-              onClick={onOpenATS}
-              className="px-6 py-3 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 hover:bg-cyan-500/20 font-semibold text-xs tracking-wider transition shrink-0 self-start md:self-auto flex items-center gap-2"
-            >
-              ⚡ View ATS Resume Format
-            </button>
-          </div>
-        </div>
+            {/* Left: Contact Form Card */}
+            <div className="contact-section__form-card animate-fade-up">
+              <form onSubmit={handleSubmit} className="contact-section__form" noValidate>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 sm:gap-16 lg:gap-24">
+                <div className="contact-section__form-row">
+                  <div className="contact-section__form-group">
+                    <label htmlFor="name">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      placeholder="Jane Doe"
+                      autoComplete="name"
+                      disabled={status.state === "sending"}
+                      className="contact-section__form-input"
+                    />
+                  </div>
 
-          {/* Form */}
-          <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8" noValidate>
+                  <div className="contact-section__form-group">
+                    <label htmlFor="email">Your Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="jane@company.com"
+                      autoComplete="email"
+                      disabled={status.state === "sending"}
+                      className="contact-section__form-input"
+                    />
+                  </div>
+                </div>
 
-              {/* Name + Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-
-                {/* Name */}
-                <div className="relative">
-                  <label htmlFor="name" className="sr-only">Your Name</label>
+                <div className="contact-section__form-group">
+                  <label htmlFor="subject">Subject / Opportunity Type</label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                     required
-                    placeholder="Your Name"
-                    autoComplete="name"
+                    placeholder="e.g. MERN Developer Role / Contract Project"
                     disabled={status.state === "sending"}
-                    className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 text-white focus:outline-none focus:border-cyan-500/50 disabled:opacity-50"
+                    className="contact-section__form-input"
                   />
                 </div>
 
-                {/* Email */}
-                <div className="relative">
-                  <label htmlFor="email" className="sr-only">Your Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                <div className="contact-section__form-group">
+                  <label htmlFor="message">Project Scope & Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Your Email"
-                    autoComplete="email"
+                    placeholder="Tell me about your project timelines, stack requirements, or role details..."
                     disabled={status.state === "sending"}
-                    className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 text-white focus:outline-none focus:border-cyan-500/50 disabled:opacity-50"
-                  />
+                    className="contact-section__form-textarea"
+                  ></textarea>
                 </div>
-              </div>
 
-              {/* Subject */}
-              <div className="relative">
-                <label htmlFor="subject" className="sr-only">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="Subject (e.g. MERN Developer Role / Freelance Project)"
-                  disabled={status.state === "sending"}
-                  className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 text-white focus:outline-none focus:border-cyan-500/50 disabled:opacity-50"
-                />
-              </div>
-
-              {/* Message */}
-              <div className="relative">
-                <label htmlFor="message" className="sr-only">Your Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Tell me about your project or career opportunity..."
-                  disabled={status.state === "sending"}
-                  className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 text-white resize-none focus:outline-none focus:border-cyan-500/50 disabled:opacity-50"
-                ></textarea>
-              </div>
-
-              {/* Button + Status */}
-              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button
-                  type="submit"
-                  disabled={status.state === "sending"}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-black font-semibold text-sm tracking-wide rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
-                >
-                  {status.state === "sending" ? "Sending..." : "Send Message"}
-                </button>
-
-                {status.message && (
-                  <p
-                    className={`text-sm ${status.state === "success" ? "text-emerald-400" : "text-amber-400"
-                      }`}
-                    role="status"
+                <div className="contact-section__form-footer">
+                  <button
+                    type="submit"
+                    disabled={status.state === "sending"}
+                    className="btn btn--primary"
                   >
-                    {status.message}
-                  </p>
-                )}
+                    {status.state === "sending" ? "Dispatching Message..." : "Send Message 🚀"}
+                  </button>
+
+                  {status.message && (
+                    <p
+                      className={`status-msg ${status.state === "success" ? "status-msg--success" : "status-msg--error"}`}
+                      role="status"
+                    >
+                      {status.message}
+                    </p>
+                  )}
+                </div>
+
+              </form>
+            </div>
+
+            {/* Right: Direct Information Cards */}
+            <div className="contact-section__sidebar animate-fade-up delay-1">
+
+              {/* Status Card */}
+              <div className="contact-section__sidebar-card">
+                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.25rem" }}>
+                  <div className="status-beacon">
+                    <span className="status-beacon__ping"></span>
+                    <span className="status-beacon__dot"></span>
+                  </div>
+                  <span className="card-label" style={{ color: "#ffffff", fontSize: "0.8rem" }}>
+                    Availability Status
+                  </span>
+                </div>
+                <p className="card-text">
+                  Available for immediate start in full-time positions, remote contracts, and client projects worldwide.
+                </p>
               </div>
 
-            </form>
-          </div>
-
-          {/* Right Side */}
-          <div className="lg:col-span-2 space-y-8 sm:space-y-10 pt-8 lg:pt-0 border-t border-white/5 lg:border-t-0">
-
-            {/* Info */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-4">
-                Recruiter & Client Contact
-              </h3>
-
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Available for full-time engineering positions, contract roles, and technical collaborations worldwide.
-              </p>
-            </div>
-
-            {/* Email */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
-                Direct Email
-              </h3>
-
-              <a href="mailto:mluqmakhan@gmail.com"
-                className="text-base sm:text-lg text-white hover:text-cyan-400 transition-colors duration-300 font-medium break-all"
-              >
-                mluqmakhan@gmail.com
-              </a>
-            </div>
-
-            {/* Phone / WhatsApp */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
-                Phone / WhatsApp
-              </h3>
-
-              <a href="https://wa.me/923191844403" target="_blank" rel="noreferrer"
-                className="text-base sm:text-lg text-white hover:text-emerald-400 transition-colors duration-300 font-medium"
-              >
-                +92 319 1844403
-              </a>
-            </div>
-
-            {/* Location */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-2">
-                Location
-              </h3>
-
-              <p className="text-slate-300 text-sm">
-                Islamabad, Pakistan (Remote & On-site)
-              </p>
-            </div>
-
-            {/* Status */}
-            <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border border-white/5 bg-white/2">
-              <div className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              {/* Email Card */}
+              <div className="contact-section__sidebar-card">
+                <span className="card-label">Direct Email</span>
+                <a
+                  href="mailto:mluqmakhan@gmail.com"
+                  className="card-link"
+                >
+                  mluqmakhan@gmail.com
+                </a>
               </div>
 
-              <span className="text-sm text-slate-300">
-                Available for Immediate Hire
-              </span>
+              {/* Phone Card */}
+              <div className="contact-section__sidebar-card">
+                <span className="card-label">Direct Phone / WhatsApp</span>
+                <a
+                  href="https://wa.me/923191844403"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card-link card-link--whatsapp"
+                >
+                  +92 319 1844403
+                </a>
+              </div>
+
+              {/* Location Card */}
+              <div className="contact-section__sidebar-card">
+                <span className="card-label">Location & Response Time</span>
+                <p className="card-text" style={{ fontWeight: "600", color: "#ffffff" }}>
+                  📍 Islamabad, Pakistan (Remote Worldwide)
+                </p>
+                <p className="card-sub">
+                  ⚡ Typical response time within 2-4 hours.
+                </p>
+              </div>
+
             </div>
 
           </div>
-
-        </div>
+        </section>
       </div>
     </div>
   );

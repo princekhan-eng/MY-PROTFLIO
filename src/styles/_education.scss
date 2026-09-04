@@ -1,0 +1,125 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS EDUCATION & CERTIFICATIONS
+// ==========================================
+
+.education-section {
+  padding: 3rem 0;
+
+  &__header {
+    margin-bottom: 3rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @include desktop {
+      grid-template-columns: 1fr 1.35fr;
+      gap: 2.5rem;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    &-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: $color-text-muted;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__card {
+    @include glass-card;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    &-top {
+      @include flex-between;
+
+      .icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: $color-text-white;
+      line-height: 1.35;
+    }
+
+    &-meta {
+      font-size: 0.75rem;
+      font-family: $font-mono;
+      color: $color-text-dim;
+    }
+
+    &-desc {
+      font-size: 0.825rem;
+      line-height: 1.6;
+      color: $color-text-secondary;
+      padding-top: 0.75rem;
+      border-top: 1px solid $color-border-faint;
+    }
+  }
+
+  &__cert-card {
+    @include glass-card;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .cert-title-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        h4 {
+          font-size: 1rem;
+          font-weight: 800;
+          color: $color-text-white;
+        }
+      }
+
+      .cert-issuer {
+        font-size: 0.8rem;
+        color: $color-text-muted;
+
+        strong {
+          color: $color-text-secondary;
+        }
+      }
+
+      .cert-skills {
+        font-family: $font-mono;
+        font-size: 0.725rem;
+        color: $color-cyan-light;
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}

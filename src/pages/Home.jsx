@@ -15,140 +15,144 @@ function Home({ onOpenATS }) {
     document.body.removeChild(link);
   };
 
+  const coreTech = [
+    "React 19",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "TypeScript",
+    "REST APIs",
+    "SCSS / Sass",
+    "UI/UX Architecture"
+  ];
+
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white flex flex-col justify-center px-4 sm:px-6 md:px-10 overflow-hidden py-16 md:py-12">
-      {/* LIGHTWEIGHT RADIAL GLOW (NO GPU BLUR OVERHEAD) */}
-      <div 
-        className="absolute inset-0 pointer-events-none -z-10" 
-        style={{
-          background: `
-            radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
-            radial-gradient(circle at 15% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
-            radial-gradient(circle at 50% 50%, transparent 0%, #050505 85%)
-          `
-        }}
-      ></div>
+    <div className="page-wrapper">
+      {/* Dynamic SCSS Ambient Orbs */}
+      <div className="ambient-orb ambient-orb--cyan animate-drift-1" style={{ top: "4rem", right: "8%" }}></div>
+      <div className="ambient-orb ambient-orb--violet animate-drift-2" style={{ bottom: "10rem", left: "5%" }}></div>
+      <div className="ambient-orb ambient-orb--indigo" style={{ top: "40%", left: "35%" }}></div>
 
-      {/* Hero Section Grid */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 sm:gap-12 md:gap-6 lg:gap-0 relative z-10 py-8">
-        {/* Left Side - Editorial Typography */}
-        <div className="w-full md:w-1/2 space-y-5 sm:space-y-6 text-center md:text-left relative">
-          {/* Decorators */}
-          <div className="absolute -top-8 -left-4 text-slate-800 text-4xl font-thin select-none hidden lg:block">
-            +
-          </div>
-          <div className="absolute top-20 -left-10 text-slate-800 text-2xl font-thin select-none hidden lg:block">
-            +
-          </div>
+      {/* Cyber Grid Pattern Background */}
+      <div className="bg-grid-overlay"></div>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-widest lite-fade-up">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            MERN Stack Developer & Full Stack Engineer
-          </div>
+      <div className="container">
+        {/* Hero Section Grid */}
+        <section className="hero">
+          <div className="hero__grid">
+            
+            {/* Left Column: Hero Text */}
+            <div className="hero__content">
+              
+              {/* Role Pill */}
+              <div className="hero__role-tag badge-pill badge-pill--cyan animate-fade-up">
+                <span style={{ width: "6px", height: "6px", borderRadius: "9999px", background: "#06b6d4" }}></span>
+                <span>MERN Stack Engineer & UI Architect</span>
+              </div>
 
-          <h1
-            className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight sm:tracking-tighter leading-tight sm:leading-[0.95] lite-fade-up break-words"
-          >
-            Muhammad <br />
-            <span className="text-slate-500">Luqman.</span>
-          </h1>
+              {/* Main Title */}
+              <h1 className="hero__title animate-fade-up delay-1">
+                Muhammad <br />
+                <span className="text-gradient-white">Luqman.</span>
+              </h1>
 
-          {/* Available Status Badge */}
-          <div
-            className="flex items-center gap-3 justify-center md:justify-start lite-fade-up"
-          >
-            <div className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              {/* Available Status Row */}
+              <div className="hero__status-row animate-fade-up delay-2">
+                <div className="status-beacon">
+                  <span className="status-beacon__ping"></span>
+                  <span className="status-beacon__dot"></span>
+                </div>
+                <span>Available for Full-Time Roles, Contract & Freelance Projects</span>
+              </div>
+
+              {/* Lead Paragraph */}
+              <p className="hero__desc animate-fade-up delay-3">
+                Architecting resilient full-stack web applications and high-converting user experiences with <strong>React 19, Node.js, Express, MongoDB</strong>, and modular <code>SCSS</code> engineering. Dedicated to clean code, micro-animations, and fast performance.
+              </p>
+
+              {/* Tech Stack Chips */}
+              <div className="hero__tech-ticker animate-fade-up delay-4">
+                {coreTech.map((tech) => (
+                  <span key={tech} className="badge-mono">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="hero__ctas animate-fade-up delay-5">
+                <Link to="/contact" className="btn btn--primary">
+                  <span>Let's Build Together</span>
+                  <span>→</span>
+                </Link>
+
+                <button
+                  onClick={onOpenATS}
+                  className="btn btn--cyber"
+                >
+                  <span>⚡ View ATS Resume</span>
+                </button>
+
+                <button
+                  onClick={downloadCV}
+                  className="btn btn--glass"
+                >
+                  <span>Download CV</span>
+                  <svg style={{ width: "1rem", height: "1rem", color: "#06b6d4" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                </button>
+              </div>
+
             </div>
-            <span className="text-xs sm:text-sm text-slate-400 font-medium">
-              Available for full-time roles & freelance work
-            </span>
-          </div>
 
-          <p
-            className="text-slate-400 text-sm sm:text-base leading-6 sm:leading-7 max-w-lg mx-auto md:mx-0 lite-fade-up"
-          >
-            Architecting robust full-stack web applications with <span className="text-white font-medium">React 19, Node.js, Express, MongoDB</span>, and modern UI engineering. Dedicated to clean code standards and high performance.
-          </p>
+            {/* Right Column: Hero Profile Image with Glowing Orbitals */}
+            <div className="hero__avatar-wrapper animate-fade-up delay-2">
+              <div className="hero__avatar-frame">
+                
+                {/* Ambient Aura */}
+                <div className="hero__avatar-glow"></div>
 
-          {/* ATS Keyword Badges Ticker */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1 lite-fade-up">
-            {["React 19", "Node.js", "Express.js", "MongoDB", "TypeScript", "REST APIs", "Tailwind CSS"].map((tech) => (
-              <span key={tech} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] font-mono text-slate-300">
-                {tech}
-              </span>
-            ))}
-          </div>
+                {/* Outer Ring */}
+                <div className="hero__avatar-ring">
+                  <div className="hero__avatar-ring-gradient">
+                    <OptimizedImg
+                      src={profile}
+                      alt="Muhammad Luqman"
+                    />
+                  </div>
+                </div>
 
-          {/* Action Buttons */}
-          <div
-            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start pt-3 lite-fade-up w-full"
-          >
-            <Link to="/contact" className="group relative w-full sm:w-auto px-6 sm:px-8 py-3.5 bg-white text-black rounded-full font-semibold text-sm tracking-wide overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:scale-105 text-center">
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                Hire Me
-              </span>
-              <div className="absolute inset-0 bg-slate-900 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-            </Link>
+                {/* Floating Experience Badge */}
+                <div className="hero__chip hero__chip--left animate-float">
+                  <div className="hero__chip-badge">2+</div>
+                  <div>
+                    <div className="hero__chip-title">Years Dev Exp.</div>
+                    <div className="hero__chip-sub">Full-Stack MERN</div>
+                  </div>
+                </div>
 
-            <button
-              onClick={onOpenATS}
-              className="w-full sm:w-auto px-6 sm:px-7 py-3.5 bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-full font-semibold text-sm tracking-wide hover:bg-cyan-500/30 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/10"
-            >
-              <span>⚡ View ATS Resume</span>
-            </button>
+                {/* Floating Projects Shipped Badge */}
+                <div className="hero__chip hero__chip--right">
+                  <div className="status-beacon">
+                    <span className="status-beacon__ping"></span>
+                    <span className="status-beacon__dot"></span>
+                  </div>
+                  <div className="hero__chip-title" style={{ fontSize: "0.75rem" }}>
+                    30+ Projects Shipped
+                  </div>
+                </div>
 
-            <button
-              onClick={downloadCV}
-              className="w-full sm:w-auto px-6 sm:px-7 py-3.5 border border-slate-800 text-slate-400 rounded-full font-semibold text-sm tracking-wide hover:border-slate-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              <span>Download CV</span>
-              <svg
-                className="w-4 h-4 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Right Side - Profile Image */}
-        <div className="w-full md:w-1/2 flex justify-center pb-8 sm:pb-10 md:pb-0">
-          <div
-            className="relative w-56 h-56 xs:w-64 xs:h-64 sm:w-80 sm:h-80 md:w-88 md:h-88 lg:w-105 lg:h-105 group cursor-pointer"
-          >
-            {/* Image Container */}
-            <div
-              className="relative w-full h-full rounded-full p-1.5 bg-[#0a0a0a]"
-            >
-              <div className="w-full h-full rounded-full p-[3px] bg-gradient-to-r from-cyan-500/80 via-violet-500/40 to-transparent">
-                <OptimizedImg
-                  src={profile}
-                  alt="Muhammad Luqman"
-                  className="w-full h-full object-cover rounded-full shadow-2xl shadow-black/50"
-                />
               </div>
             </div>
+
           </div>
-        </div>
-      </div>
+        </section>
 
-      {/* Stats Counter Section */}
-      <div className="w-full max-w-7xl mx-auto relative z-10">
+        {/* Stats Counter Section */}
         <StatsCounter />
-      </div>
 
-      {/* Services Showcase Section */}
-      <div className="w-full max-w-7xl mx-auto relative z-10">
+        {/* Services Showcase Section */}
         <ServicesList />
       </div>
     </div>

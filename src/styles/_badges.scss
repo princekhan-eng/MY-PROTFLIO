@@ -1,0 +1,75 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==========================================
+// SCSS BADGES & TAGS
+// ==========================================
+
+.badge-mono {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: $font-mono;
+  font-size: 0.725rem;
+  font-weight: 500;
+  padding: 0.3rem 0.65rem;
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: $color-text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-text-white;
+    border-color: $color-border-cyan;
+    background: rgba(6, 182, 212, 0.08);
+  }
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: $radius-full;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  &--cyan {
+    background: $color-cyan-subtle;
+    color: $color-cyan-light;
+    border: 1px solid $color-border-cyan;
+  }
+
+  &--violet {
+    background: $color-violet-subtle;
+    color: $color-violet-light;
+    border: 1px solid $color-border-violet;
+  }
+
+  &--indigo {
+    background: $color-indigo-subtle;
+    color: $color-indigo-light;
+    border: 1px solid $color-border-indigo;
+  }
+
+  &--emerald {
+    background: $color-emerald-subtle;
+    color: $color-emerald-light;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+  }
+
+  &--amber {
+    background: $color-amber-subtle;
+    color: #fcd34d;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+  }
+
+  &--rose {
+    background: $color-rose-subtle;
+    color: #fda4af;
+    border: 1px solid rgba(244, 63, 94, 0.25);
+  }
+}
