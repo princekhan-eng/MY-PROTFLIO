@@ -1,6 +1,6 @@
-import Experience from "../compoants/Experience";
-import SkillMatrix from "../compoants/SkillMatrix";
-import EducationCertifications from "../compoants/EducationCertifications";
+import Experience from "../components/Experience";
+import SkillMatrix from "../components/SkillMatrix";
+import EducationCertifications from "../components/EducationCertifications";
 
 export default function About({ onOpenATS }) {
   const process = [

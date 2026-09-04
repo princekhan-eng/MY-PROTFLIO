@@ -84,6 +84,12 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     max-width: 100%;
     overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__link {

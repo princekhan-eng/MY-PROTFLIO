@@ -44,11 +44,11 @@ export default function Contact({ onOpenATS }) {
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         console.error(result);
-        setStatus({ state: "error", message: "Message note logged: You can also reach me directly at mluqmakhan@gmail.com." });
+        setStatus({ state: "error", message: "Unable to submit automated form. You can reach me directly at mluqmakhan@gmail.com." });
       }
     } catch (error) {
       console.error(error);
-      setStatus({ state: "error", message: "Network error. Please email mluqmakhan@gmail.com directly." });
+      setStatus({ state: "error", message: "Network connection error. Please email mluqmakhan@gmail.com directly." });
     }
   };
 

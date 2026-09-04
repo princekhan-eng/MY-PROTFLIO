@@ -1,8 +1,8 @@
-import OptimizedImg from "../compoants/imgeoptimizing";
+import OptimizedImg from "../components/ImageOptimizing";
 import profile from "../assets/ChatGPT Image Jul 10, 2026, 09_30_17 PM.png";
 import CV from "../assets/Muhammad_Luqman_CV.pdf";
-import StatsCounter from "../compoants/StatsCounter";
-import ServicesList from "../compoants/ServicesList";
+import StatsCounter from "../components/StatsCounter";
+import ServicesList from "../components/ServicesList";
 import { Link } from "react-router-dom";
 
 function Home({ onOpenATS }) {

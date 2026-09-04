@@ -42,13 +42,19 @@ FEATURED PROJECTS
    • Tech Stack: React 19, Node.js, Express.js, REST API, SCSS Architecture
    • Built complete team onboarding flow, Kanban board task status transitions, department filtering, and shareable updates newsfeed.
    • Live Site: https://mengment-app.vercel.app/
+   • Repository: https://github.com/princekhan-eng/Team-mangment-applcation-
 
-2. Production Banking Management System
+2. Hotel & Restaurant Management Platform
+   • Tech Stack: React, Node.js, Express.js, MongoDB, SCSS
+   • Full-stack room booking & restaurant dining system with menu ordering and bill calculator.
+   • Repository: https://github.com/princekhan-eng/HOtAL-AND-RETURANT-
+
+3. Production Banking Management System
    • Tech Stack: MERN (MongoDB, Express, React, Node.js), JWT, HTTP-Only Cookies
    • Implemented multi-tier authentication, deposit/withdrawal calculations, and secure monetary transfers.
    • Live Site: https://frontend-banking-eta.vercel.app/
 
-3. AI Content Generator App
+4. AI Content Generator App
    • Tech Stack: React, OpenAI API, SCSS, Node.js
    • Developed AI marketing copy and blog post generation tool with interactive prompt templates.
 
@@ -120,7 +126,8 @@ LANGUAGES
 
           <h2>Featured Projects</h2>
           <ul>
-            <li><span class="bold">ManageHub Platform:</span> React 19, Node.js, Express, MongoDB, SCSS (Live: mengment-app.vercel.app)</li>
+            <li><span class="bold">ManageHub Platform:</span> React 19, Node.js, Express, MongoDB, SCSS (Live: mengment-app.vercel.app | Repo: github.com/princekhan-eng/Team-mangment-applcation-)</li>
+            <li><span class="bold">Hotel & Restaurant System:</span> React, Node.js, Express, MongoDB, SCSS (Repo: github.com/princekhan-eng/HOtAL-AND-RETURANT-)</li>
             <li><span class="bold">Banking Management System:</span> React, Node.js, Express, MongoDB, JWT (Live: frontend-banking-eta.vercel.app)</li>
             <li><span class="bold">AI Content Generator:</span> React, OpenAI API, SCSS, Node.js</li>
           </ul>
@@ -215,7 +222,7 @@ LANGUAGES
               Islamabad, Pakistan | Email: <a href="mailto:mluqmakhan@gmail.com">mluqmakhan@gmail.com</a> | Phone: +92 319 1844403
             </p>
             <p style={{ fontSize: "0.75rem", color: "#94a3b8" }}>
-              GitHub: <a href="https://github.com/Mluqman-main" target="_blank" rel="noreferrer">github.com/Mluqman-main</a> | LinkedIn: <a href="https://www.linkedin.com/in/muhammad-luqman-0b4253335/" target="_blank" rel="noreferrer">linkedin.com/in/muhammad-luqman-0b4253335</a>
+              GitHub: <a href="https://github.com/princekhan-eng" target="_blank" rel="noreferrer">github.com/princekhan-eng</a> | LinkedIn: <a href="https://www.linkedin.com/in/muhammad-luqman-0b4253335/" target="_blank" rel="noreferrer">linkedin.com/in/muhammad-luqman-0b4253335</a>
             </p>
           </div>
 
@@ -255,7 +262,8 @@ LANGUAGES
           <div>
             <h4 className="section-title">4. Key Featured Projects</h4>
             <ul>
-              <li><strong>ManageHub Team Platform:</strong> Enterprise workspace with 5-step onboarding wizard, interactive task board, employee directory, and live announcements. (Live: mengment-app.vercel.app)</li>
+              <li><strong>ManageHub Team Platform:</strong> Enterprise workspace with 5-step onboarding wizard, interactive task board, employee directory, and live announcements. (Live: mengment-app.vercel.app | Repo: github.com/princekhan-eng/Team-mangment-applcation-)</li>
+              <li><strong>Hotel & Restaurant Management Platform:</strong> Full-stack room reservations, dining table management, and digital menu ordering system. (Repo: github.com/princekhan-eng/HOtAL-AND-RETURANT-)</li>
               <li><strong>Production Banking System:</strong> Secure banking solution with JWT cookie security, deposit/withdrawal calculations, and money transfers. (Live: frontend-banking-eta.vercel.app)</li>
               <li><strong>AI Content Generator:</strong> Web app for AI marketing copy and article generation powered by React and OpenAI APIs.</li>
             </ul>

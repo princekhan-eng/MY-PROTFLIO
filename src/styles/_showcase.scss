@@ -77,6 +77,12 @@
     margin-bottom: 2.5rem;
     border-bottom: 1px solid $color-border-subtle;
     overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .tab-btn {
       padding: 0.6rem 1.35rem;

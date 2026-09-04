@@ -130,9 +130,17 @@ export default function ManageHubShowcase() {
                 >
                   Visit Live Site (mengment-app.vercel.app)
                 </a>
+                <a
+                  href="https://github.com/princekhan-eng/Team-mangment-applcation-"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--glass"
+                >
+                  <span>GitHub Repository</span>
+                </a>
                 <button
                   onClick={() => setActiveTab("onboarding")}
-                  className="btn btn--glass"
+                  className="btn btn--cyber btn--sm"
                 >
                   Interactive Onboarding Flow
                 </button>
