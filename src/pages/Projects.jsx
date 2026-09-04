@@ -186,9 +186,10 @@ export default function Projects({ onOpenATS }) {
                         {project.showcaseUrl && (
                           <Link
                             to={project.showcaseUrl}
-                            className="btn btn--cyber btn--sm"
+                            className="btn btn--cyber"
                           >
-                            Interactive Showcase →
+                            <span>Interactive Showcase</span>
+                            <span>→</span>
                           </Link>
                         )}
                       </div>
