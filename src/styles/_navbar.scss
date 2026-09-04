@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 4.5rem;
+  height: 4rem;
   z-index: $z-navbar;
   @include glass($color-bg-glass, 20px, $color-border-subtle);
   border-top: none;
@@ -25,18 +25,27 @@
   &__inner {
     height: 100%;
     @include flex-between;
-    gap: 1rem;
+    gap: 0.5rem;
+
+    @include desktop {
+      gap: 1.25rem;
+    }
   }
 
   // Brand Logo
   &__brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    flex-shrink: 0;
+
+    @include desktop {
+      gap: 0.75rem;
+    }
 
     &-icon {
-      width: 2.25rem;
-      height: 2.25rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: $radius-md;
       background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
       border: 1px solid $color-border-cyan;
@@ -44,8 +53,14 @@
       color: $color-cyan;
       font-family: $font-mono;
       font-weight: 800;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       transition: transform $transition-fast;
+
+      @include tablet {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 0.75rem;
+      }
     }
 
     &-name {
@@ -55,7 +70,7 @@
       color: $color-text-white;
       transition: color $transition-fast;
 
-      @include mobile {
+      @media (max-width: 900px) {
         display: none;
       }
     }
@@ -74,8 +89,8 @@
   &__nav {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.35rem 0.45rem;
+    gap: 0.15rem;
+    padding: 0.25rem 0.35rem;
     background: rgba(14, 17, 29, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -90,22 +105,34 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include tablet {
+      gap: 0.25rem;
+      padding: 0.35rem 0.45rem;
+    }
   }
 
   &__link {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     white-space: nowrap;
-    padding: 0.45rem 1.15rem;
+    padding: 0.32rem 0.55rem;
     border-radius: $radius-full;
     color: $color-text-muted;
     transition: all $transition-fast;
 
-    @include mobile {
-      padding: 0.35rem 0.75rem;
-      font-size: 0.68rem;
+    @media (min-width: 480px) {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    @include desktop {
+      padding: 0.45rem 1.15rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
     }
 
     &:hover {
@@ -124,16 +151,27 @@
   &__actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    flex-shrink: 0;
+
+    .btn {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.7rem;
+
+      @media (min-width: 480px) {
+        padding: 0.5rem 1.15rem;
+        font-size: 0.75rem;
+      }
+    }
 
     .btn-ats-nav {
-      @include mobile {
+      @media (max-width: 768px) {
         display: none;
       }
     }
 
     .btn-cv-nav {
-      @include tablet {
+      @media (max-width: 992px) {
         display: none;
       }
     }
